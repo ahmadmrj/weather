@@ -8,7 +8,6 @@ class PredictionController
 {
 	public function test(PredictionService $prediction) {
 
-		// $partners = 
 
 		return new Response(
 			'hello wold!'.$prediction->getPrediction()
