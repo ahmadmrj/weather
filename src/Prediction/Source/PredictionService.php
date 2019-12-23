@@ -3,7 +3,7 @@ namespace App\Prediction\Source;
 
 class PredictionService
 {
-    private PredictionSource $source;
+    private $source;
 
 	public function setSource(PredictionSource $source) {
 		$this->source = $source;
