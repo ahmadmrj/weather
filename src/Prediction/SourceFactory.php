@@ -12,6 +12,8 @@ class SourceFactory
     public static function createSource($address) {
         $prediction = new PredictionService();
 
+        //@todo: dynamic types
+
         if(strpos($address, 'csv')) {
             $prediction->setSource(new CsvPredictionSource($address));
         } else {

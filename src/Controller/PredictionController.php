@@ -15,9 +15,11 @@ class PredictionController extends AbstractController
         // Get all partners
         $partners = $repository->findAll();
         // Get Data from partners
+        $predictions = [];
         foreach ($partners as $partner){
-            $prediction = SourceFactory::createSource($partner->getSource());
-            $partner_res = $prediction->getData(new OFormatterStandard());
+            $prediction_source = SourceFactory::createSource($partner->getSource());
+            $partner_res = $prediction_source->getData();
+            print_r($partner_res);
 
         }
 //        $prediction->getPrediction()

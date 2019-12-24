@@ -8,11 +8,6 @@ class OFormatterStandard implements OFormatterInterface
 {
     public function format($data)
     {
-        //
         return $data;
-    }
-
-    private function changeScale() {
-
     }
 }
