@@ -9,13 +9,13 @@ use App\Prediction\Source\PredictionService;
 
 class SourceFactory
 {
-    public static function createSource($format) {
+    public static function createSource($address) {
         $prediction = new PredictionService();
 
-        if(strpos($format, 'csv')) {
-            $prediction->setSource(new CsvPredictionSource());
+        if(strpos($address, 'csv')) {
+            $prediction->setSource(new CsvPredictionSource($address));
         } else {
-            $prediction->setSource(new XmlPredictionSource());
+            $prediction->setSource(new XmlPredictionSource($address));
         }
 
         return $prediction;
