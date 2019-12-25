@@ -15,16 +15,12 @@ class CsvPredictionSource extends PredictionSourceAbstract
         $output['scale'] = $file_content[0];
         $output['city'] = $file_content[1];
         $output['date'] = date('Y-m-d', strtotime(strval($file_content[2])));
-        $output['predictions'][] = [
-            'time' => $file_content[3],
-            'value' => $file_content[4]
-        ];
+        // Set time as index
+        $output['predictions'][$file_content[3]] = $file_content[4];
 
         while ($file_content = fgetcsv($file, 100, ",")) {
-            $output['predictions'][] = [
-                'time' => $file_content[3],
-                'value' => $file_content[4]
-            ];
+            // Set time as index
+            $output['predictions'][$file_content[3]] = $file_content[4];
         }
 
         return $output;

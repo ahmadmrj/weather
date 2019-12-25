@@ -10,6 +10,7 @@ class PredictionService
 	}
 
 	public function getData() {
-	    return $this->source->getData();
+        $data = $this->source->getData();
+	    return $data;
     }
 }

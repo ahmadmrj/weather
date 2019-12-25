@@ -3,4 +3,4 @@
 #    controller: App\Controller\DefaultController::index
 app_weather_prediction:
   path: /weather/prediction/
-  controller: App\Controller\PredictionController::test
+  controller: App\Controller\PredictionController::index

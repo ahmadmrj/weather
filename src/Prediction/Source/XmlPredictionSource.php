@@ -16,10 +16,7 @@ class XmlPredictionSource extends PredictionSourceAbstract
         	$output['date'] = date('Y-m-d', strtotime(strval($file_content->date)));
 
         	foreach ($file_content->prediction as $prediction) {
-                $output['predictions'][] = [
-                    'time' => strval($prediction->time),
-                    'value' => strval($prediction->value)
-                ];
+                $output['predictions'][strval($prediction->time)] = strval($prediction->value);
             }
 
         	return $output;
