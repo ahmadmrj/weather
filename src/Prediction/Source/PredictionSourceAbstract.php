@@ -13,5 +13,5 @@ abstract class PredictionSourceAbstract implements PredictionSource
         $this->address = __DIR__.'/files/'.$address;
     }
 
-    abstract public function getData();
+    abstract public function getData($date);
 }

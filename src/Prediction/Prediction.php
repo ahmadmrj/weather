@@ -3,6 +3,12 @@
 
 namespace App\Prediction;
 
+/**
+* Eache prediction of a specific time will be turn to a class of Prediction
+* As we want to have a out put with 2 scales during creating object different scales value added to object.
+* 
+*/
+
 class Prediction
 {
     public $time;

@@ -6,5 +6,5 @@ namespace App\Prediction\Source;
 
 interface PredictionSource
 {
-    public function getData();
+    public function getData($date);
 }

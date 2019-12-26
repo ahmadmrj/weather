@@ -3,7 +3,9 @@
 
 namespace App\Prediction\Scales;
 
-
+/**
+* Each scale carry the methods show how it could turn to other scales.
+*/
 class Fahrenheit
 {
     public function toCelsius($temp) {

@@ -13,8 +13,8 @@ use Symfony\Component\Validator\Validation;
 class PredictionController extends AbstractController
 {
 	/**
-	* It reperents out endpoint.
-	**/
+	* It reperents endpoint.
+    */
 	public function index($date) {
 		$validated = $this->validate($date);
 
@@ -28,7 +28,7 @@ class PredictionController extends AbstractController
 	        // Get Data from partners
 	        foreach ($partners as $partner){
 	            $prediction_source = SourceFactory::createSource($partner->getSource());
-	            $partner_res = $prediction_source->getData();
+	            $partner_res = $prediction_source->getData($date);
 	            $predictions->addResults($partner_res);
 	        }
 	        // Prepare response
@@ -40,15 +40,20 @@ class PredictionController extends AbstractController
 	    }
 	}
 
-	public function validate($date)
+	/**
+	* It validates input 
+	* @param $date
+	*/
+	private function validate($date)
 	{
 		$validator = Validation::createValidator();
-		
+		// First lets see it is a real date
 		$errors = $validator->validate(
 		        $date,
 		        new Assert\Date(),
 		    );
-		
+
+		// Next, controll range of input
 		if (!isset($errors[0])) {
 			$range_input = \DateTime::createfromformat('Y-m-d', $date);
 
@@ -56,13 +61,13 @@ class PredictionController extends AbstractController
 			        $range_input,
 			        [
 			        	new Assert\Range([
-	                      'min' => "now",
+	                      'min' => "+1 days",
 	                      'max' => "+10 days"
 	                  	]),
 			        ]
 			    );
 		}
-		
+
 		if (isset($errors[0])) {
         	return new Response($errors[0]->getMessage());
 	    } else {

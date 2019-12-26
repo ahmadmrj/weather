@@ -2,5 +2,6 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 app_weather_prediction:
-  path: /weather/prediction/{date}
+  path: /api/prediction/{date}
   controller: App\Controller\PredictionController::index
+  methods: GET

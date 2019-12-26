@@ -9,8 +9,8 @@ class PredictionService
 		$this->source = $source;
 	}
 
-	public function getData() {
-        $data = $this->source->getData();
+	public function getData($date) {
+        $data = $this->source->getData($date);
 	    return $data;
     }
 }

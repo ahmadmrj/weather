@@ -1,6 +1,9 @@
 <?php
 namespace App\Prediction;
 
+/**
+* Results from different partners gather in here to a one result.
+*/
 class PredictionResults
 {
     public $city;
